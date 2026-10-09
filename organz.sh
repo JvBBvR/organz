@@ -4,7 +4,7 @@ direct=$1
 echo "organizing directory: $direct"
 if [ -d "$direct" ]
 then 
-	cd $direct || exit 1
+	cd "$direct" || exit 1
 	mkdir -p Audio/ Image/ Video/ Document/
 else	
 	echo "Erorr! $direct is not a directory"
@@ -22,7 +22,6 @@ mv *.ogg Audio/
 echo "organizing Video Files..."
 mv *.qt Video/
 mv *.mov Video/
-mv *.gif Video/
 mv *.ogv Video/
 mv *.vob Video/
 mv *.flv Video/
@@ -36,4 +35,21 @@ mv *.3g2 Video/
 mv *.svi Video/
 mv *.gifv Video/
 
+echo "organizing Image Files..." 
+mv *.png Image/
+mv *.jpeg Image/
+mv *.jpg Image/
+mv *.gif Image/
+mv *.jfif Image/
+mv *.jxl Image/
+mv *.webp Image/
+
+echo "organizing other documents..."
+for file in * 
+do 
+	if [ -f "$file" ]
+	then
+		mv -- "$file" Document/
+	fi
+done
 
