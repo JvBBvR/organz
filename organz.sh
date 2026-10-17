@@ -1,4 +1,6 @@
 #!/bin/bash 
+#this is a test program i written i want to write a better version 
+
 shopt -s nocaseglob
 direct=$1
 echo "organizing directory: $direct"
